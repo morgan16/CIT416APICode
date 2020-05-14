@@ -1,10 +1,9 @@
 <?php
  require_once '../../config.php';
- global $DB,$SESSION,$CFG;
+ global $DB,$SESSION;
  $token=$_REQUEST['token'];
- $prefix=$CFG->prefix;
  $SESSION->access_token = $token;
- $query= $DB->get_record_sql("select token FROM " . $prefix . "external_tokens WHERE token='$token'");
+ $query= $DB->get_record_sql("select token FROM mdl_external_tokens WHERE token='$token'");
  $data= $query->token;
  $response=array();
 if($data)
